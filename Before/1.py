@@ -1,11 +1,12 @@
-# for i in range(1,11):
-#     number = []
-#     for j in range(10):
-#         number.append(i)
-#     for k in range(1, 11):
-#         number[k-1] *= k
-#     print(number)
+from Before import otvratitelnoenazvanie as mod2
+from Before.mod import test as testfunc
+import pandas as pd
 
-for i in range(1,11):
-    number = [value * i for value in range(1,11)]
-    print(number)
+pd.read_csv("")
+
+mod2.test()
+
+
+
+
+testfunc()
