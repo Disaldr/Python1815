@@ -1,0 +1,17 @@
+import re
+import requests
+from bs4 import BeautifulSoup
+
+text = input("Введите запрос: ")
+region = int(input("Введите код региона: "))
+payload = {'text': text, 'il': region}
+resolt = requests.get("https://yandex.ru/search/", params=payload).text
+# print(resolt)
+
+soup = BeautifulSoup(resolt, 'html.parser')
+# print(soup.prettify())
+
+referals = open("referals.txt", 'a')
+
+for link in soup.find_all('a', href=re.compile('^https\:\/\/www\.')):
+    referals.write(link.get('href')+'\n')
